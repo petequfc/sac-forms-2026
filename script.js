@@ -5,13 +5,13 @@
 
 
 /* =========================================================
-   PERGUNTAS
+   BANCO DE PERGUNTAS
    ========================================================= */
 
 const perguntas = [
 
   /* =======================================================
-     SEÇÃO 1
+     SEÇÃO 1 — COMPETÊNCIAS TÉCNICAS FUNDAMENTAIS
      ======================================================= */
 
   {
@@ -47,7 +47,7 @@ const perguntas = [
 
 
   /* =======================================================
-     SEÇÃO 2
+     SEÇÃO 2 — COMPETÊNCIAS GERAIS DE ENGENHARIA
      ======================================================= */
 
   {
@@ -103,7 +103,7 @@ const perguntas = [
 
 
   /* =======================================================
-     SEÇÃO 3
+     SEÇÃO 3 — COMPETÊNCIAS ESPECÍFICAS
      ======================================================= */
 
   {
@@ -180,7 +180,7 @@ const perguntas = [
 
 
   /* =======================================================
-     SEÇÃO 4
+     SEÇÃO 4 — EIXOS DE FORMAÇÃO PRÁTICA
      ======================================================= */
 
   {
@@ -206,7 +206,7 @@ const perguntas = [
 
 
   /* =======================================================
-     SEÇÃO 5
+     SEÇÃO 5 — COMPETÊNCIAS INDIVIDUAIS
      ======================================================= */
 
   {
@@ -224,7 +224,7 @@ const perguntas = [
 
 
   /* =======================================================
-     SEÇÃO 6 — REFLEXIVAS
+     SEÇÃO 6 — PERGUNTAS REFLEXIVAS
      ======================================================= */
 
   {
@@ -301,11 +301,14 @@ const perguntas = [
   },
 
 
-  /* CÁLCULO */
+  /* =======================================================
+     CÁLCULO DIFERENCIAL E INTEGRAL
+     ======================================================= */
 
   {
     tipo: "secao",
-    titulo: "Disciplinas de Formação Básica — Cálculo Diferencial e Integral",
+    titulo:
+      "Disciplinas de Formação Básica — Cálculo Diferencial e Integral",
     descricao: ""
   },
 
@@ -324,7 +327,9 @@ const perguntas = [
   },
 
 
-  /* FÍSICA */
+  /* =======================================================
+     FÍSICA GERAL
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -347,7 +352,9 @@ const perguntas = [
   },
 
 
-  /* QUÍMICA */
+  /* =======================================================
+     QUÍMICA GERAL E ANALÍTICA
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -370,11 +377,14 @@ const perguntas = [
   },
 
 
-  /* TERMODINÂMICA */
+  /* =======================================================
+     TERMODINÂMICA
+     ======================================================= */
 
   {
     tipo: "secao",
-    titulo: "Disciplinas de Ciência da Engenharia — Termodinâmica",
+    titulo:
+      "Disciplinas de Ciência da Engenharia — Termodinâmica",
     descricao: ""
   },
 
@@ -393,7 +403,9 @@ const perguntas = [
   },
 
 
-  /* FENÔMENOS DE TRANSPORTE */
+  /* =======================================================
+     FENÔMENOS DE TRANSPORTE
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -416,7 +428,9 @@ const perguntas = [
   },
 
 
-  /* MECÂNICA DOS FLUIDOS */
+  /* =======================================================
+     MECÂNICA DOS FLUIDOS
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -439,7 +453,9 @@ const perguntas = [
   },
 
 
-  /* OPERAÇÕES UNITÁRIAS I */
+  /* =======================================================
+     OPERAÇÕES UNITÁRIAS I
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -464,7 +480,9 @@ const perguntas = [
   },
 
 
-  /* OPERAÇÕES UNITÁRIAS II */
+  /* =======================================================
+     OPERAÇÕES UNITÁRIAS II
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -488,7 +506,9 @@ const perguntas = [
   },
 
 
-  /* REATORES */
+  /* =======================================================
+     REATORES QUÍMICOS
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -511,7 +531,9 @@ const perguntas = [
   },
 
 
-  /* CONTROLE */
+  /* =======================================================
+     CONTROLE DE PROCESSOS
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -534,7 +556,9 @@ const perguntas = [
   },
 
 
-  /* PLANTAS */
+  /* =======================================================
+     PROJETO DE PLANTAS INDUSTRIAIS
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -557,11 +581,14 @@ const perguntas = [
   },
 
 
-  /* ENGENHARIA ECONÔMICA */
+  /* =======================================================
+     ENGENHARIA ECONÔMICA
+     ======================================================= */
 
   {
     tipo: "secao",
-    titulo: "Disciplinas Complementares — Engenharia Econômica",
+    titulo:
+      "Disciplinas Complementares — Engenharia Econômica",
     descricao: ""
   },
 
@@ -580,7 +607,9 @@ const perguntas = [
   },
 
 
-  /* GESTÃO */
+  /* =======================================================
+     GESTÃO DA PRODUÇÃO E QUALIDADE
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -603,7 +632,9 @@ const perguntas = [
   },
 
 
-  /* AMBIENTAL */
+  /* =======================================================
+     ENGENHARIA AMBIENTAL
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -626,7 +657,9 @@ const perguntas = [
   },
 
 
-  /* SEGURANÇA */
+  /* =======================================================
+     SEGURANÇA DE PROCESSOS
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -649,11 +682,14 @@ const perguntas = [
   },
 
 
-  /* LABORATÓRIO */
+  /* =======================================================
+     LABORATÓRIO DE ENGENHARIA QUÍMICA
+     ======================================================= */
 
   {
     tipo: "secao",
-    titulo: "Atividades Práticas — Laboratório de Engenharia Química",
+    titulo:
+      "Atividades Práticas — Laboratório de Engenharia Química",
     descricao: ""
   },
 
@@ -672,7 +708,9 @@ const perguntas = [
   },
 
 
-  /* ESTÁGIO */
+  /* =======================================================
+     ESTÁGIO SUPERVISIONADO
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -695,11 +733,14 @@ const perguntas = [
   },
 
 
-  /* BIOTECNOLOGIA */
+  /* =======================================================
+     BIOTECNOLOGIA / BIOPROCESSOS
+     ======================================================= */
 
   {
     tipo: "secao",
-    titulo: "Disciplinas Avançadas — Biotecnologia/Bioprocessos",
+    titulo:
+      "Disciplinas Avançadas — Biotecnologia/Bioprocessos",
     descricao: ""
   },
 
@@ -718,7 +759,9 @@ const perguntas = [
   },
 
 
-  /* PETRÓLEO */
+  /* =======================================================
+     PETRÓLEO E GÁS
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -741,7 +784,9 @@ const perguntas = [
   },
 
 
-  /* POLÍMEROS */
+  /* =======================================================
+     POLÍMEROS
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -764,7 +809,9 @@ const perguntas = [
   },
 
 
-  /* CATÁLISE */
+  /* =======================================================
+     CATÁLISE
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -787,11 +834,14 @@ const perguntas = [
   },
 
 
-  /* SIMULAÇÃO */
+  /* =======================================================
+     SIMULAÇÃO DE PROCESSOS
+     ======================================================= */
 
   {
     tipo: "secao",
-    titulo: "Disciplinas Integradoras — Simulação de Processos",
+    titulo:
+      "Disciplinas Integradoras — Simulação de Processos",
     descricao: ""
   },
 
@@ -810,7 +860,9 @@ const perguntas = [
   },
 
 
-  /* OTIMIZAÇÃO */
+  /* =======================================================
+     OTIMIZAÇÃO DE PROCESSOS
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -833,7 +885,9 @@ const perguntas = [
   },
 
 
-  /* TCC */
+  /* =======================================================
+     TCC
+     ======================================================= */
 
   {
     tipo: "secao",
@@ -859,7 +913,7 @@ const perguntas = [
 
 
 /* =========================================================
-   PERGUNTAS REAIS
+   APENAS AS PERGUNTAS REAIS
    ========================================================= */
 
 const perguntasReais =
@@ -1037,7 +1091,7 @@ function irParaFormulario() {
 
 
 /* =========================================================
-   DESCOBRIR SEÇÃO ATUAL
+   DESCOBRIR A SEÇÃO DA PERGUNTA
    ========================================================= */
 
 function descobrirSecao(perguntaAtual) {
@@ -1054,7 +1108,9 @@ function descobrirSecao(perguntaAtual) {
     if (
       perguntas[i] === perguntaAtual
     ) {
+
       break;
+
     }
 
 
@@ -1098,11 +1154,15 @@ function renderizarPergunta() {
     );
 
 
+  /* NÚMERO DA PERGUNTA */
+
   document
     .getElementById("numeroPergunta")
     .textContent =
     numeroVisual;
 
+
+  /* PORCENTAGEM */
 
   document
     .getElementById("porcentagem")
@@ -1110,11 +1170,15 @@ function renderizarPergunta() {
     porcentagem + "%";
 
 
+  /* BARRA */
+
   document
     .getElementById("barraProgresso")
     .style.width =
     porcentagem + "%";
 
+
+  /* SEÇÃO */
 
   const secaoAtual =
     descobrirSecao(pergunta);
@@ -1126,6 +1190,10 @@ function renderizarPergunta() {
     secaoAtual;
 
 
+  /* =======================================================
+     COMEÇA A MONTAR A PERGUNTA
+     ======================================================= */
+
   let html = `
 
     <div class="pergunta-card">
@@ -1136,6 +1204,8 @@ function renderizarPergunta() {
 
   `;
 
+
+  /* NÚMERO ORIGINAL DO SAC */
 
   if (pergunta.numero) {
 
@@ -1150,6 +1220,8 @@ function renderizarPergunta() {
   }
 
 
+  /* SUBSEÇÃO */
+
   if (pergunta.secao) {
 
     html += `
@@ -1163,6 +1235,8 @@ function renderizarPergunta() {
   }
 
 
+  /* TÍTULO DAS REFLEXIVAS */
+
   if (pergunta.titulo) {
 
     html += `
@@ -1175,6 +1249,8 @@ function renderizarPergunta() {
 
   }
 
+
+  /* TEXTO */
 
   html += `
 
@@ -1196,7 +1272,7 @@ function renderizarPergunta() {
     html += `
 
       <p class="instrucao">
-        Escreva sua resposta abaixo.
+        Esta pergunta é obrigatória.
       </p>
 
       <textarea
@@ -1218,7 +1294,7 @@ function renderizarPergunta() {
     html += `
 
       <p class="instrucao">
-        Avalie de 0 a 5.
+        Selecione uma opção de 0 a 5.
       </p>
 
       <div class="escala">
@@ -1228,7 +1304,9 @@ function renderizarPergunta() {
     `;
 
 
-    /* COMENTÁRIO OPCIONAL */
+    /* =====================================================
+       COMENTÁRIO OPCIONAL
+       ===================================================== */
 
     if (pergunta.comentario) {
 
@@ -1255,7 +1333,9 @@ function renderizarPergunta() {
     }
 
 
-    /* PERGUNTA ABERTA COMPLEMENTAR */
+    /* =====================================================
+       PERGUNTA COMPLEMENTAR OBRIGATÓRIA
+       ===================================================== */
 
     if (pergunta.aberta) {
 
@@ -1294,17 +1374,13 @@ function renderizarPergunta() {
 
   carregarResposta();
 
-  adicionarEventosAutomaticos();
-
   atualizarBotoes();
-
-  atualizarMapaPerguntas();
 
 }
 
 
 /* =========================================================
-   ESCALA 0 A 5
+   CRIAR ESCALA DE 0 A 5
    ========================================================= */
 
 function criarEscala() {
@@ -1345,7 +1421,7 @@ function criarEscala() {
 
 
 /* =========================================================
-   SALVAR RESPOSTA ATUAL
+   SALVAR A RESPOSTA ATUAL
    ========================================================= */
 
 function salvarResposta() {
@@ -1353,6 +1429,10 @@ function salvarResposta() {
   const dados =
     respostas[indiceAtual] || {};
 
+
+  /* =======================================================
+     NOTA
+     ======================================================= */
 
   const escala =
     document.querySelector(
@@ -1367,12 +1447,12 @@ function salvarResposta() {
         escala.value
       );
 
-  } else {
-
-    delete dados.nota;
-
   }
 
+
+  /* =======================================================
+     RESPOSTA ABERTA
+     ======================================================= */
 
   const respostaAtual =
     document.getElementById(
@@ -1388,6 +1468,10 @@ function salvarResposta() {
   }
 
 
+  /* =======================================================
+     COMENTÁRIO
+     ======================================================= */
+
   const comentarioAtual =
     document.getElementById(
       "comentarioAtual"
@@ -1401,6 +1485,10 @@ function salvarResposta() {
 
   }
 
+
+  /* =======================================================
+     COMPLEMENTAR
+     ======================================================= */
 
   const complementar =
     document.getElementById(
@@ -1423,7 +1511,7 @@ function salvarResposta() {
 
 
 /* =========================================================
-   CARREGAR RESPOSTA
+   CARREGAR RESPOSTA ANTERIOR
    ========================================================= */
 
 function carregarResposta() {
@@ -1433,9 +1521,13 @@ function carregarResposta() {
 
 
   if (!dados) {
+
     return;
+
   }
 
+
+  /* NOTA */
 
   if (
     dados.nota !== undefined
@@ -1457,6 +1549,8 @@ function carregarResposta() {
   }
 
 
+  /* ABERTA */
+
   const respostaAtual =
     document.getElementById(
       "respostaAtual"
@@ -1474,6 +1568,8 @@ function carregarResposta() {
   }
 
 
+  /* COMENTÁRIO */
+
   const comentarioAtual =
     document.getElementById(
       "comentarioAtual"
@@ -1490,6 +1586,8 @@ function carregarResposta() {
 
   }
 
+
+  /* COMPLEMENTAR */
 
   const complementar =
     document.getElementById(
@@ -1511,120 +1609,45 @@ function carregarResposta() {
 
 
 /* =========================================================
-   ATUALIZAR AUTOMATICAMENTE O MAPA
+   VALIDAR A PERGUNTA ATUAL
    ========================================================= */
 
-function adicionarEventosAutomaticos() {
-
-  const radios =
-    document.querySelectorAll(
-      'input[name="escalaAtual"]'
-    );
-
-
-  radios.forEach(radio => {
-
-    radio.addEventListener(
-      "change",
-      function () {
-
-        salvarResposta();
-
-        atualizarMapaPerguntas();
-
-      }
-    );
-
-  });
-
-
-  const camposTexto =
-    document.querySelectorAll(
-      "#respostaAtual, #respostaComplementar, #comentarioAtual"
-    );
-
-
-  camposTexto.forEach(campo => {
-
-    campo.addEventListener(
-      "input",
-      function () {
-
-        salvarResposta();
-
-        atualizarMapaPerguntas();
-
-      }
-    );
-
-  });
-
-}
-
-
-/* =========================================================
-   VERIFICAR SE A PERGUNTA ESTÁ COMPLETA
-   ========================================================= */
-
-function perguntaEstaRespondida(indice) {
+function validarPerguntaAtual() {
 
   const pergunta =
-    perguntasReais[indice];
+    perguntasReais[indiceAtual];
 
 
-  const dados =
-    respostas[indice];
-
-
-  if (!dados) {
-
-    return false;
-
-  }
-
-
-  /* PERGUNTA TOTALMENTE ABERTA */
+  /* =======================================================
+     PERGUNTA TOTALMENTE ABERTA
+     ======================================================= */
 
   if (
     pergunta.tipo === "aberta"
   ) {
 
-    return Boolean(
-      dados.resposta &&
-      dados.resposta.trim() !== ""
-    );
-
-  }
+    const campo =
+      document.getElementById(
+        "respostaAtual"
+      );
 
 
-  /* ESCALA OBRIGATÓRIA */
+    if (
+      !campo ||
+      campo.value.trim() === ""
+    ) {
 
-  const escalaRespondida =
-    dados.nota !== undefined &&
-    dados.nota !== null;
-
-
-  if (!escalaRespondida) {
-
-    return false;
-
-  }
+      alert(
+        "Esta pergunta é obrigatória. Preencha sua resposta antes de continuar."
+      );
 
 
-  /*
-     SE EXISTIR PERGUNTA ABERTA
-     COMPLEMENTAR, ELA TAMBÉM
-     É OBRIGATÓRIA.
-  */
+      if (campo) {
 
-  if (pergunta.aberta) {
+        campo.focus();
 
-    const complementarRespondida =
-      dados.complementar &&
-      dados.complementar.trim() !== "";
+      }
 
-
-    if (!complementarRespondida) {
 
       return false;
 
@@ -1633,110 +1656,69 @@ function perguntaEstaRespondida(indice) {
   }
 
 
-  /*
-     "Comentários" são opcionais.
-  */
+  /* =======================================================
+     PERGUNTA COM ESCALA
+     ======================================================= */
 
-  return true;
+  else {
 
-}
-
-
-/* =========================================================
-   MAPA DAS PERGUNTAS
-   ========================================================= */
-
-function atualizarMapaPerguntas() {
-
-  const mapa =
-    document.getElementById(
-      "mapaPerguntas"
-    );
-
-
-  mapa.innerHTML =
-    "";
-
-
-  perguntasReais.forEach(
-    (pergunta, indice) => {
-
-      const indicador =
-        document.createElement(
-          "div"
-        );
-
-
-      indicador.classList.add(
-        "indicador-pergunta"
+    const escala =
+      document.querySelector(
+        'input[name="escalaAtual"]:checked'
       );
 
 
-      /*
-         O mapa usa a ordem do
-         formulário, e não a
-         numeração original,
-         pois o PDF possui números
-         repetidos.
-      */
+    if (!escala) {
 
-      indicador.textContent =
-        indice + 1;
-
-
-      if (
-        perguntaEstaRespondida(
-          indice
-        )
-      ) {
-
-        indicador.classList.add(
-          "respondida"
-        );
-
-      } else {
-
-        indicador.classList.add(
-          "pendente"
-        );
-
-      }
-
-
-      if (
-        indice === indiceAtual
-      ) {
-
-        indicador.classList.add(
-          "atual"
-        );
-
-      }
-
-
-      indicador.title =
-        pergunta.texto;
-
-
-      indicador.onclick =
-        function () {
-
-          salvarResposta();
-
-          indiceAtual =
-            indice;
-
-          renderizarPergunta();
-
-        };
-
-
-      mapa.appendChild(
-        indicador
+      alert(
+        "Esta pergunta é obrigatória. Selecione uma opção de 0 a 5 antes de continuar."
       );
+
+
+      return false;
 
     }
-  );
+
+
+    /* =====================================================
+       PERGUNTA COMPLEMENTAR
+       ===================================================== */
+
+    if (pergunta.aberta) {
+
+      const complementar =
+        document.getElementById(
+          "respostaComplementar"
+        );
+
+
+      if (
+        !complementar ||
+        complementar.value.trim() === ""
+      ) {
+
+        alert(
+          "Preencha também a pergunta complementar antes de continuar."
+        );
+
+
+        if (complementar) {
+
+          complementar.focus();
+
+        }
+
+
+        return false;
+
+      }
+
+    }
+
+  }
+
+
+  return true;
 
 }
 
@@ -1748,9 +1730,18 @@ function atualizarMapaPerguntas() {
 function proxima() {
 
   /*
-     A pessoa pode avançar
-     mesmo sem responder.
+     AGORA NÃO É POSSÍVEL AVANÇAR
+     SEM RESPONDER A PERGUNTA ATUAL.
   */
+
+  if (
+    !validarPerguntaAtual()
+  ) {
+
+    return;
+
+  }
+
 
   salvarResposta();
 
@@ -1764,23 +1755,34 @@ function proxima() {
 
     renderizarPergunta();
 
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
   }
 
 }
 
 
 /* =========================================================
-   VOLTAR / ANTERIOR
+   ANTERIOR / VOLTAR
    ========================================================= */
 
 function anterior() {
+
+  /*
+     AO VOLTAR, SALVAMOS QUALQUER
+     ALTERAÇÃO FEITA NA PERGUNTA.
+  */
 
   salvarResposta();
 
 
   /*
-     NA PRIMEIRA PERGUNTA:
-     volta para a identificação.
+     NA PRIMEIRA PERGUNTA,
+     VOLTA PARA IDENTIFICAÇÃO.
   */
 
   if (
@@ -1797,19 +1799,25 @@ function anterior() {
 
 
   /*
-     NAS OUTRAS:
-     volta uma pergunta.
+     NAS DEMAIS,
+     VOLTA UMA PERGUNTA.
   */
 
   indiceAtual--;
 
   renderizarPergunta();
 
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
 }
 
 
 /* =========================================================
-   BOTÕES
+   ATUALIZAR BOTÕES
    ========================================================= */
 
 function atualizarBotoes() {
@@ -1832,6 +1840,10 @@ function atualizarBotoes() {
     );
 
 
+  /* =======================================================
+     TEXTO DO BOTÃO VOLTAR
+     ======================================================= */
+
   anterior.style.visibility =
     "visible";
 
@@ -1843,13 +1855,19 @@ function atualizarBotoes() {
     anterior.textContent =
       "← Voltar";
 
-  } else {
+  }
+
+  else {
 
     anterior.textContent =
       "← Anterior";
 
   }
 
+
+  /* =======================================================
+     ÚLTIMA PERGUNTA
+     ======================================================= */
 
   if (
     indiceAtual ===
@@ -1862,7 +1880,9 @@ function atualizarBotoes() {
     enviar.style.display =
       "block";
 
-  } else {
+  }
+
+  else {
 
     proximo.style.display =
       "block";
@@ -1876,91 +1896,32 @@ function atualizarBotoes() {
 
 
 /* =========================================================
-   DESCRIÇÃO DE UMA PENDÊNCIA
-   ========================================================= */
-
-function descricaoPerguntaPendente(
-  indice
-) {
-
-  const pergunta =
-    perguntasReais[indice];
-
-
-  let identificacao =
-    `Pergunta ${indice + 1}`;
-
-
-  /*
-     Mostra também o número
-     original do formulário
-     quando houver.
-  */
-
-  if (pergunta.numero) {
-
-    identificacao +=
-      ` (item ${pergunta.numero})`;
-
-  }
-
-
-  let motivo = "";
-
-
-  const dados =
-    respostas[indice] || {};
-
-
-  if (
-    pergunta.tipo === "aberta"
-  ) {
-
-    motivo =
-      "resposta aberta não preenchida";
-
-  }
-
-  else if (
-    dados.nota === undefined ||
-    dados.nota === null
-  ) {
-
-    motivo =
-      "nota de 0 a 5 não selecionada";
-
-  }
-
-  else if (
-    pergunta.aberta &&
-    (
-      !dados.complementar ||
-      dados.complementar.trim() === ""
-    )
-  ) {
-
-    motivo =
-      "pergunta complementar não respondida";
-
-  }
-
-
-  return (
-    `${identificacao} — ${pergunta.texto}` +
-    (motivo ? ` [${motivo}]` : "")
-  );
-
-}
-
-
-/* =========================================================
-   ENVIAR
+   ENVIAR FORMULÁRIO
    ========================================================= */
 
 function enviar() {
 
+  /*
+     A ÚLTIMA PERGUNTA TAMBÉM
+     PRECISA ESTAR RESPONDIDA.
+  */
+
+  if (
+    !validarPerguntaAtual()
+  ) {
+
+    return;
+
+  }
+
+
   salvarResposta();
 
+
+  /* =======================================================
+     SEGURANÇA EXTRA:
+     CONFERE SE TODAS FORAM RESPONDIDAS
+     ======================================================= */
 
   const perguntasPendentes =
     [];
@@ -1969,9 +1930,67 @@ function enviar() {
   perguntasReais.forEach(
     (pergunta, indice) => {
 
-      if (
-        !perguntaEstaRespondida(
+      const dados =
+        respostas[indice];
+
+
+      if (!dados) {
+
+        perguntasPendentes.push(
           indice
+        );
+
+        return;
+
+      }
+
+
+      /* PERGUNTA ABERTA */
+
+      if (
+        pergunta.tipo === "aberta"
+      ) {
+
+        if (
+          !dados.resposta ||
+          dados.resposta.trim() === ""
+        ) {
+
+          perguntasPendentes.push(
+            indice
+          );
+
+        }
+
+
+        return;
+
+      }
+
+
+      /* ESCALA */
+
+      if (
+        dados.nota === undefined ||
+        dados.nota === null
+      ) {
+
+        perguntasPendentes.push(
+          indice
+        );
+
+        return;
+
+      }
+
+
+      /* COMPLEMENTAR */
+
+      if (
+        pergunta.aberta &&
+        (
+          !dados.complementar ||
+          dados.complementar.trim() === ""
         )
       ) {
 
@@ -1985,50 +2004,18 @@ function enviar() {
   );
 
 
-  /* =======================================================
-     EXISTEM PENDÊNCIAS
-     ======================================================= */
+  /*
+     NORMALMENTE ISTO NÃO DEVE MAIS
+     ACONTECER, PORQUE O SISTEMA JÁ
+     IMPEDE QUE A PESSOA AVANCE.
+  */
 
   if (
     perguntasPendentes.length > 0
   ) {
 
-    const quantidade =
-      perguntasPendentes.length;
-
-
-    const lista =
-      perguntasPendentes
-        .map(indice =>
-          descricaoPerguntaPendente(
-            indice
-          )
-        )
-        .join("\n\n");
-
-
     alert(
-
-      "Não foi possível finalizar o formulário.\n\n" +
-
-      "Todas as perguntas são obrigatórias.\n\n" +
-
-      "Ainda faltam " +
-      quantidade +
-      (
-        quantidade === 1
-          ? " pergunta:"
-          : " perguntas:"
-      ) +
-
-      "\n\n" +
-
-      lista +
-
-      "\n\n" +
-
-      "Você será direcionado(a) para a primeira pergunta pendente."
-
+      "Existem perguntas obrigatórias que ainda não foram respondidas."
     );
 
 
@@ -2039,19 +2026,13 @@ function enviar() {
     renderizarPergunta();
 
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-
     return;
 
   }
 
 
   /* =======================================================
-     TUDO RESPONDIDO
+     DADOS DE IDENTIFICAÇÃO
      ======================================================= */
 
   const identificacao = {
@@ -2079,6 +2060,10 @@ function enviar() {
   };
 
 
+  /* =======================================================
+     POR ENQUANTO, MOSTRA NO CONSOLE
+     ======================================================= */
+
   console.log(
     "IDENTIFICAÇÃO:",
     identificacao
@@ -2092,14 +2077,10 @@ function enviar() {
 
 
   /*
-     IMPORTANTE:
-
-     POR ENQUANTO OS DADOS
-     NÃO SÃO ENVIADOS PARA
-     O SUPABASE.
-
-     A CONEXÃO COM O BANCO
-     ENTRARÁ AQUI.
+     ============================================
+     FUTURAMENTE:
+     CONEXÃO COM SUPABASE ENTRARÁ AQUI
+     ============================================
   */
 
 
