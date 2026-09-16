@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>SAC Forms</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="app">
+
+
+    <!-- ==================================================
+         PÁGINA 1 — APRESENTAÇÃO
+         ================================================== -->
+
+    <section id="paginaInicio" class="pagina ativa">
+      <div class="card inicio inicio-expandida">
+        <div class="marca-topo">
+          <span class="tag">SAC Forms</span>
+          <img src="logo_pet.png" alt="PET Engenharia Química - UFC" class="logo-pet">
+        </div>
+
+        <h1>Sistema de Avaliação Curricular</h1>
+        <p class="subtitulo-inicio">Sua experiência na graduação também contribui para a avaliação e o aprimoramento do curso.</p>
+
+        <p class="texto-intro">O SAC Forms integra o Sistema de Avaliação Curricular da Engenharia Química da UFC e é uma iniciativa realizada pelo <strong>PET Engenharia Química (PET-EQ/UFC)</strong>. Seu objetivo é reunir a percepção dos estudantes sobre as competências desenvolvidas ao longo da graduação e sobre a contribuição das disciplinas para a formação acadêmica.</p>
+
+        <div class="info-grid">
+          <div class="info-box"><div class="icone-info">▥</div><div><strong>Para que serve?</strong><span>As respostas ajudam a identificar pontos fortes, lacunas e oportunidades de melhoria na formação oferecida pelo curso.</span></div></div>
+          <div class="info-box"><div class="icone-info">●●</div><div><strong>Quem responde?</strong><span>Estudantes de Engenharia Química da UFC, considerando sua própria trajetória e experiência acadêmica.</span></div></div>
+          <div class="info-box"><div class="icone-info">✓</div><div><strong>Como os dados serão usados?</strong><span>As respostas serão utilizadas para fins acadêmicos e para apoiar a avaliação e o aprimoramento do curso.</span></div></div>
+        </div>
+
+        <div class="guia-resposta painel">
+          <h2>Como responder?</h2>
+          <ol><li>Preencha suas informações de identificação.</li><li>Responda às perguntas sobre competências e disciplinas.</li><li>Avalie de 0 a 5 o quanto sua formação contribuiu para o seu desenvolvimento em cada item.</li><li>Nas disciplinas, informe sua situação e, quando necessário, o motivo. Você também pode acrescentar observações.</li></ol>
+        </div>
+
+        <div class="avaliacao-layout">
+          <div class="avaliar-box">
+            <h2>O que exatamente devo avaliar?</h2>
+            <p>Considere sua experiência ao longo da graduação. A nota deve representar principalmente <strong>o quanto a sua formação contribuiu para o desenvolvimento da competência apresentada</strong>, e não apenas se você gostou da disciplina ou se considera que ela foi bem ensinada.</p>
+            <ul><li>o quanto você desenvolveu essa competência ou aprendeu aquele conteúdo;</li><li>o quanto disciplinas, atividades e experiências do curso contribuíram para isso;</li><li>o quanto você se sente preparado(a) para aplicar esse conhecimento ou habilidade;</li><li>sua percepção geral sobre a contribuição da graduação para esse desenvolvimento.</li></ul>
+          </div>
+          <div class="escala-explicacao">
+            <strong>Escala de avaliação</strong>
+            <div class="mini-escala"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+            <small><b>0</b> = nenhuma contribuição<br><b>5</b> = máxima contribuição</small>
+          </div>
+        </div>
+
+        <div class="disciplina-box"><h2>Situação da disciplina</h2><p>Para cada disciplina, informe se você já concluiu, está cursando ou ainda não cursou. Se ainda não cursou, selecione o motivo. Isso ajuda a interpretar corretamente seu percurso acadêmico.</p></div>
+        <div class="aviso observacao-aviso"><div class="icone-observacao">▣</div><div><strong>Observações</strong><span>Em todas as perguntas há um campo de observação opcional. Use esse espaço para complementar sua resposta, trazer exemplos, sugestões ou qualquer informação que considere relevante.</span></div></div>
+
+        <button class="botao principal botao-inicio" onclick="irParaIdentificacao()">Começar formulário →</button>
+      </div>
+    </section>
+
+
+    <!-- ==================================================
+         PÁGINA 2 — IDENTIFICAÇÃO
+         ================================================== -->
+
+    <section
+      id="paginaIdentificacao"
+      class="pagina"
+    >
+
+      <div class="card">
+
+        <div class="cabecalho-pagina">
+
+          <span class="etapa">
+            IDENTIFICAÇÃO
+          </span>
+
+          <h1>
+            Antes de começar
+          </h1>
+
+          <p>
+            Preencha suas informações para iniciar a avaliação.
+          </p>
+
+        </div>
+
+
+        <!-- NOME -->
+
+        <div class="campo">
+
+          <label for="nome">
+            Nome completo
+          </label>
+
+          <input
+            type="text"
+            id="nome"
+            placeholder="Digite seu nome completo"
+          >
+
+        </div>
+
+
+        <!-- MATRÍCULA -->
+
+        <div class="campo">
+
+          <label for="matricula">
+            Matrícula
+          </label>
+
+          <input
+            type="text"
+            id="matricula"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            placeholder="Digite sua matrícula"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+          >
+
+        </div>
+
+
+        <!-- SEMESTRE -->
+
+        <div class="campo">
+
+          <label for="semestre">
+            Semestre
+          </label>
+
+          <select id="semestre">
+
+            <option value="">
+              Selecione seu semestre
+            </option>
+
+            <option value="1">1º semestre</option>
+            <option value="2">2º semestre</option>
+            <option value="3">3º semestre</option>
+            <option value="4">4º semestre</option>
+            <option value="5">5º semestre</option>
+            <option value="6">6º semestre</option>
+            <option value="7">7º semestre</option>
+            <option value="8">8º semestre</option>
+            <option value="9">9º semestre</option>
+            <option value="10">10º semestre</option>
+
+          </select>
+
+        </div>
+
+
+        <!-- CURRÍCULO -->
+
+        <div class="campo">
+
+          <label>
+            De qual currículo você faz parte?
+          </label>
+
+
+          <div class="curriculos">
+
+            <label class="opcao-curriculo">
+
+              <input
+                type="radio"
+                name="curriculo"
+                value="2005.1"
+              >
+
+              <div>
+
+                <strong>
+                  Currículo 2005.1
+                </strong>
+
+                <small>
+                  Currículo antigo
+                </small>
+
+              </div>
+
+            </label>
+
+
+            <label class="opcao-curriculo">
+
+              <input
+                type="radio"
+                name="curriculo"
+                value="2023.1"
+              >
+
+              <div>
+
+                <strong>
+                  Currículo 2023.1
+                </strong>
+
+                <small>
+                  Currículo novo
+                </small>
+
+              </div>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <div class="acoes">
+
+          <button
+            class="botao secundario"
+            onclick="voltarInicio()"
+          >
+            ← Voltar
+          </button>
+
+
+          <button
+            class="botao principal"
+            onclick="irParaFormulario()"
+          >
+            Avançar →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         PÁGINA 3 — FORMULÁRIO
+         ================================================== -->
+
+    <section
+      id="paginaFormulario"
+      class="pagina"
+    >
+
+      <div class="formulario-container">
+
+
+        <!-- CABEÇALHO -->
+
+        <div class="topo-formulario">
+
+          <span class="tag">
+            SAC Forms
+          </span>
+
+          <h1>
+            Sistema de Avaliação Curricular
+          </h1>
+
+          <p id="descricaoSecao"></p>
+
+        </div>
+
+
+        <!-- ==================================================
+             BARRA DE PROGRESSÃO
+             ================================================== -->
+
+        <div class="progresso-container">
+
+          <div class="progresso-info">
+
+            <span>
+              Pergunta
+              <strong id="numeroPergunta">1</strong>
+              de
+              <strong id="totalPerguntas"></strong>
+            </span>
+
+            <span id="porcentagem">
+              0%
+            </span>
+
+          </div>
+
+
+          <div class="progresso">
+
+            <div
+              id="barraProgresso"
+              class="barra"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             A PERGUNTA ATUAL APARECE AQUI
+             ================================================== -->
+
+        <div id="perguntaContainer"></div>
+
+
+        <!-- ==================================================
+             NAVEGAÇÃO
+             ================================================== -->
+
+        <div class="navegacao">
+
+
+          <!-- VOLTAR -->
+
+          <button
+            id="btnAnterior"
+            class="botao secundario"
+            onclick="anterior()"
+          >
+            ← Voltar
+          </button>
+
+
+          <!-- PRÓXIMA -->
+
+          <button
+            id="btnProximo"
+            class="botao principal"
+            onclick="proxima()"
+          >
+            Próxima →
+          </button>
+
+
+          <!-- ENVIAR -->
+
+          <button
+            id="btnEnviar"
+            class="botao principal"
+            onclick="enviar()"
+            style="display: none;"
+          >
+            Enviar respostas
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         PÁGINA FINAL
+         ================================================== -->
+
+    <section
+      id="paginaFinal"
+      class="pagina"
+    >
+
+      <div class="card final">
+
+        <div class="check">
+          ✓
+        </div>
+
+        <h1>
+          Obrigado por participar!
+        </h1>
+
+        <p>
+          Suas respostas foram enviadas com sucesso.
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
