@@ -415,51 +415,80 @@ function renderizarPergunta() {
   if (pergunta.tipo === "aberta") {
     html += `<p class="instrucao">Digite sua resposta.</p>
       <textarea id="respostaAtual" placeholder="Digite sua resposta..."></textarea>`;
-  } else {
-    if (pergunta.tipo === "disciplina") {
-      html += `
-        <div class="bloco-status">
-          <label>Situação nesta disciplina</label>
-          <div class="status-opcoes">
-            ${[
-              ["concluida","Já concluí"],
-              ["cursando","Estou cursando"],
-              ["nao_cursei","Ainda não cursei"],
-              ["nao_concluida","Já me matriculei anteriormente, mas não concluí"]
-            ].map(([v,t]) => `<label class="status-opcao"><input type="radio" name="statusDisciplina" value="${v}" onchange="atualizarCamposDisciplina()"> ${t}</label>`).join("")}
-          </div>
-          <div id="motivoNaoCursou" class="motivo-nao-cursou oculto">
-            <label for="motivoDisciplina">Por que você ainda não cursou esta disciplina?</label>
-            <select id="motivoDisciplina" onchange="atualizarOutroMotivo()">
-              <option value="">Selecione um motivo</option>
-              <option value="fluxo">Ainda não cheguei ao período/semestre previsto para cursá-la</option>
-              <option value="prerequisito">Ainda não cumpri algum pré-requisito</option>
-              <option value="atraso">Estou com pendências/atraso no fluxo curricular</option>
-              <option value="oferta">Não consegui cursar por oferta, vaga ou conflito de horário</option>
-              <option value="trancamento">Trancamento ou afastamento temporário do curso</option>
-              <option value="planejamento">Optei por deixar a disciplina para outro semestre</option>
-              <option value="outro">Outro motivo</option>
-            </select>
-            <textarea id="outroMotivo" class="oculto" placeholder="Descreva brevemente o outro motivo..."></textarea>
-          </div>
-          <div id="motivoNaoConcluiu" class="motivo-nao-cursou oculto">
-            <label for="situacaoTentativa">O que ocorreu quando você cursou a disciplina?</label>
-            <select id="situacaoTentativa" onchange="atualizarOutroNaoConcluiu()">
-              <option value="">Selecione uma opção</option>
-              <option value="reprovacao">Fui reprovado(a)</option>
-              <option value="trancamento">Tranquei a disciplina</option>
-              <option value="abandono">Abandonei/cancelei a disciplina</option>
-              <option value="outro">Outro</option>
-            </select>
-            <textarea id="outroNaoConcluiu" class="oculto" placeholder="Descreva brevemente o que ocorreu..."></textarea>
-          </div>
-        </div>`;
-    }
 
-    html += `<div id="escalaWrapper" class="escala-wrapper oculto">
-      <p class="instrucao">${pergunta.tipo === "disciplina" ? "Avalie a contribuição da disciplina de 0 a 5." : "Selecione uma opção de 0 a 5."}</p>
-      <div class="escala">${criarEscala()}</div>
-    </div>`;
+  } else if (pergunta.tipo === "disciplina") {
+
+    html += `
+      <div class="bloco-status">
+        <label>Situação nesta disciplina</label>
+
+        <div class="status-opcoes">
+          ${[
+            ["concluida", "Já concluí"],
+            ["cursando", "Estou cursando"],
+            ["nao_cursei", "Ainda não cursei"],
+            ["nao_concluida", "Já me matriculei anteriormente, mas não concluí"]
+          ].map(([v,t]) =>
+            `<label class="status-opcao">
+              <input type="radio" name="statusDisciplina" value="${v}" onchange="atualizarCamposDisciplina()">
+              ${t}
+            </label>`
+          ).join("")}
+        </div>
+
+        <div id="motivoNaoCursou" class="motivo-nao-cursou oculto">
+          <label for="motivoDisciplina">Por que você ainda não cursou esta disciplina?</label>
+
+          <select id="motivoDisciplina" onchange="atualizarOutroMotivo()">
+            <option value="">Selecione um motivo</option>
+            <option value="fluxo">Ainda não cheguei ao período/semestre previsto para cursá-la</option>
+            <option value="prerequisito">Ainda não cumpri algum pré-requisito</option>
+            <option value="atraso">Estou com pendências/atraso no fluxo curricular</option>
+            <option value="oferta">Não consegui cursar por oferta, vaga ou conflito de horário</option>
+            <option value="trancamento">Trancamento ou afastamento temporário do curso</option>
+            <option value="planejamento">Optei por deixar a disciplina para outro semestre</option>
+            <option value="outro">Outro motivo</option>
+          </select>
+
+          <textarea
+            id="outroMotivo"
+            class="oculto"
+            placeholder="Explique brevemente o outro motivo..."
+          ></textarea>
+        </div>
+
+        <div id="motivoNaoConcluiu" class="motivo-nao-cursou oculto">
+          <label for="situacaoNaoConcluiu">O que ocorreu quando você cursou a disciplina?</label>
+
+          <select id="situacaoNaoConcluiu" onchange="atualizarOutroNaoConcluiu()">
+            <option value="">Selecione uma opção</option>
+            <option value="reprovacao">Fui reprovado(a)</option>
+            <option value="trancamento">Tranquei a disciplina</option>
+            <option value="abandono">Abandonei/cancelei a disciplina</option>
+            <option value="outro">Outro</option>
+          </select>
+
+          <textarea
+            id="outroNaoConcluiu"
+            class="oculto"
+            placeholder="Explique brevemente o que ocorreu..."
+          ></textarea>
+        </div>
+      </div>
+
+      <div id="escalaWrapper" class="escala-wrapper oculto">
+        <p class="instrucao">Avalie a contribuição da disciplina de 0 a 5.</p>
+        <div class="escala">${criarEscala()}</div>
+      </div>`;
+
+  } else {
+
+    /* Perguntas 1–18 continuam SEMPRE com a escala de 0 a 5. */
+    html += `
+      <div class="escala-wrapper">
+        <p class="instrucao">Selecione uma opção de 0 a 5.</p>
+        <div class="escala">${criarEscala()}</div>
+      </div>`;
   }
 
   /* Observação disponível em TODAS as perguntas */
@@ -487,38 +516,73 @@ function renderizarPergunta() {
 
 
 function atualizarCamposDisciplina() {
-  const status = document.querySelector('input[name="statusDisciplina"]:checked')?.value;
-  const motivoNaoCursou = document.getElementById("motivoNaoCursou");
-  const motivoNaoConcluiu = document.getElementById("motivoNaoConcluiu");
-  const escala = document.getElementById("escalaWrapper");
+  const status =
+    document.querySelector('input[name="statusDisciplina"]:checked')?.value;
 
-  if (!motivoNaoCursou || !motivoNaoConcluiu || !escala) return;
+  const motivoNaoCursou =
+    document.getElementById("motivoNaoCursou");
 
-  // Todos os campos condicionais começam escondidos.
-  motivoNaoCursou.classList.add("oculto");
-  motivoNaoConcluiu.classList.add("oculto");
-  escala.classList.add("oculto");
+  const motivoNaoConcluiu =
+    document.getElementById("motivoNaoConcluiu");
 
-  if (status === "concluida") {
-    escala.classList.remove("oculto");
-  } else if (status === "nao_cursei") {
-    motivoNaoCursou.classList.remove("oculto");
-  } else if (status === "nao_concluida") {
-    motivoNaoConcluiu.classList.remove("oculto");
+  const escala =
+    document.getElementById("escalaWrapper");
+
+  if (motivoNaoCursou) {
+    motivoNaoCursou.classList.toggle(
+      "oculto",
+      status !== "nao_cursei"
+    );
+  }
+
+  if (motivoNaoConcluiu) {
+    motivoNaoConcluiu.classList.toggle(
+      "oculto",
+      status !== "nao_concluida"
+    );
+  }
+
+  if (escala) {
+    /* A nota aparece SOMENTE se a disciplina já foi concluída. */
+    escala.classList.toggle(
+      "oculto",
+      status !== "concluida"
+    );
   }
 }
 
+
 function atualizarOutroMotivo() {
-  const select = document.getElementById("motivoDisciplina");
-  const outro = document.getElementById("outroMotivo");
-  if (select && outro) outro.classList.toggle("oculto", select.value !== "outro");
+  const select =
+    document.getElementById("motivoDisciplina");
+
+  const outro =
+    document.getElementById("outroMotivo");
+
+  if (select && outro) {
+    outro.classList.toggle(
+      "oculto",
+      select.value !== "outro"
+    );
+  }
 }
 
+
 function atualizarOutroNaoConcluiu() {
-  const select = document.getElementById("situacaoTentativa");
-  const outro = document.getElementById("outroNaoConcluiu");
-  if (select && outro) outro.classList.toggle("oculto", select.value !== "outro");
+  const select =
+    document.getElementById("situacaoNaoConcluiu");
+
+  const outro =
+    document.getElementById("outroNaoConcluiu");
+
+  if (select && outro) {
+    outro.classList.toggle(
+      "oculto",
+      select.value !== "outro"
+    );
+  }
 }
+
 
 /* =========================================================
    CRIAR ESCALA DE 0 A 5
@@ -576,8 +640,10 @@ function salvarResposta() {
   if (motivoDisciplina) dados.motivoDisciplina = motivoDisciplina.value;
   const outroMotivo = document.getElementById("outroMotivo");
   if (outroMotivo) dados.outroMotivo = outroMotivo.value;
-  const situacaoTentativa = document.getElementById("situacaoTentativa");
-  if (situacaoTentativa) dados.situacaoTentativa = situacaoTentativa.value;
+
+  const situacaoNaoConcluiu = document.getElementById("situacaoNaoConcluiu");
+  if (situacaoNaoConcluiu) dados.situacaoNaoConcluiu = situacaoNaoConcluiu.value;
+
   const outroNaoConcluiu = document.getElementById("outroNaoConcluiu");
   if (outroNaoConcluiu) dados.outroNaoConcluiu = outroNaoConcluiu.value;
 
@@ -600,8 +666,11 @@ function salvarResposta() {
       );
 
   }
+
   else if (statusDisciplina && statusDisciplina.value !== "concluida") {
+
     delete dados.nota;
+
   }
 
 
@@ -692,11 +761,18 @@ function carregarResposta() {
     atualizarOutroMotivo();
     const outro = document.getElementById("outroMotivo");
     if (outro && dados.outroMotivo !== undefined) outro.value = dados.outroMotivo;
-    const situacaoTentativa = document.getElementById("situacaoTentativa");
-    if (situacaoTentativa && dados.situacaoTentativa !== undefined) situacaoTentativa.value = dados.situacaoTentativa;
+
+    const situacaoNaoConcluiu = document.getElementById("situacaoNaoConcluiu");
+    if (situacaoNaoConcluiu && dados.situacaoNaoConcluiu !== undefined) {
+      situacaoNaoConcluiu.value = dados.situacaoNaoConcluiu;
+    }
+
     atualizarOutroNaoConcluiu();
+
     const outroNaoConcluiu = document.getElementById("outroNaoConcluiu");
-    if (outroNaoConcluiu && dados.outroNaoConcluiu !== undefined) outroNaoConcluiu.value = dados.outroNaoConcluiu;
+    if (outroNaoConcluiu && dados.outroNaoConcluiu !== undefined) {
+      outroNaoConcluiu.value = dados.outroNaoConcluiu;
+    }
   }
 
   /* NOTA */
@@ -789,40 +865,97 @@ function validarPerguntaAtual() {
 
   if (pergunta.tipo === "aberta") {
     const campo = document.getElementById("respostaAtual");
+
     if (!campo || campo.value.trim() === "") {
       alert("Preencha sua resposta antes de continuar.");
       campo?.focus();
       return false;
     }
+
     return true;
   }
 
   if (pergunta.tipo === "disciplina") {
-    const status = document.querySelector('input[name="statusDisciplina"]:checked');
-    if (!status) { alert("Informe sua situação nesta disciplina antes de continuar."); return false; }
+    const status =
+      document.querySelector('input[name="statusDisciplina"]:checked');
+
+    if (!status) {
+      alert("Informe sua situação nesta disciplina antes de continuar.");
+      return false;
+    }
+
     if (status.value === "nao_cursei") {
-      const motivo = document.getElementById("motivoDisciplina");
-      if (!motivo?.value) { alert("Selecione o motivo pelo qual você ainda não cursou esta disciplina."); motivo?.focus(); return false; }
-      if (motivo.value === "outro" && !document.getElementById("outroMotivo")?.value.trim()) {
-        alert("Descreva brevemente o outro motivo."); document.getElementById("outroMotivo")?.focus(); return false;
+      const motivo =
+        document.getElementById("motivoDisciplina");
+
+      if (!motivo?.value) {
+        alert("Selecione o motivo pelo qual você ainda não cursou esta disciplina.");
+        motivo?.focus();
+        return false;
       }
+
+      if (
+        motivo.value === "outro" &&
+        !document.getElementById("outroMotivo")?.value.trim()
+      ) {
+        alert("Explique brevemente o outro motivo.");
+        document.getElementById("outroMotivo")?.focus();
+        return false;
+      }
+
       return true;
     }
+
     if (status.value === "nao_concluida") {
-      const situacao = document.getElementById("situacaoTentativa");
-      if (!situacao?.value) { alert("Informe o que ocorreu quando você cursou esta disciplina."); situacao?.focus(); return false; }
-      if (situacao.value === "outro" && !document.getElementById("outroNaoConcluiu")?.value.trim()) {
-        alert("Descreva brevemente o que ocorreu."); document.getElementById("outroNaoConcluiu")?.focus(); return false;
+      const situacao =
+        document.getElementById("situacaoNaoConcluiu");
+
+      if (!situacao?.value) {
+        alert("Informe o que ocorreu quando você cursou esta disciplina.");
+        situacao?.focus();
+        return false;
       }
+
+      if (
+        situacao.value === "outro" &&
+        !document.getElementById("outroNaoConcluiu")?.value.trim()
+      ) {
+        alert("Explique brevemente o que ocorreu.");
+        document.getElementById("outroNaoConcluiu")?.focus();
+        return false;
+      }
+
       return true;
     }
-    if (status.value === "cursando") return true;
+
+    if (status.value === "cursando") {
+      return true;
+    }
+
+    /* Apenas "Já concluí" exige avaliação de 0 a 5. */
+    const escala =
+      document.querySelector('input[name="escalaAtual"]:checked');
+
+    if (!escala) {
+      alert("Avalie a contribuição da disciplina de 0 a 5 antes de continuar.");
+      return false;
+    }
+
+    return true;
   }
 
-  const escala = document.querySelector('input[name="escalaAtual"]:checked');
-  if (!escala) { alert("Selecione uma opção de 0 a 5 antes de continuar."); return false; }
+  /* Perguntas 1–18 continuam exigindo normalmente a escala de 0 a 5. */
+  const escala =
+    document.querySelector('input[name="escalaAtual"]:checked');
+
+  if (!escala) {
+    alert("Selecione uma opção de 0 a 5 antes de continuar.");
+    return false;
+  }
+
   return true;
 }
+
 
 /* =========================================================
    PRÓXIMA
@@ -1070,18 +1203,55 @@ function enviar() {
 
 
       if (pergunta.tipo === "disciplina") {
-        if (!dados.statusDisciplina) { perguntasPendentes.push(indice); return; }
+
+        if (!dados.statusDisciplina) {
+          perguntasPendentes.push(indice);
+          return;
+        }
+
         if (dados.statusDisciplina === "nao_cursei") {
-          if (!dados.motivoDisciplina || (dados.motivoDisciplina === "outro" && !dados.outroMotivo?.trim())) perguntasPendentes.push(indice);
+          if (
+            !dados.motivoDisciplina ||
+            (
+              dados.motivoDisciplina === "outro" &&
+              !dados.outroMotivo?.trim()
+            )
+          ) {
+            perguntasPendentes.push(indice);
+          }
+
           return;
         }
+
         if (dados.statusDisciplina === "nao_concluida") {
-          if (!dados.situacaoTentativa || (dados.situacaoTentativa === "outro" && !dados.outroNaoConcluiu?.trim())) perguntasPendentes.push(indice);
+          if (
+            !dados.situacaoNaoConcluiu ||
+            (
+              dados.situacaoNaoConcluiu === "outro" &&
+              !dados.outroNaoConcluiu?.trim()
+            )
+          ) {
+            perguntasPendentes.push(indice);
+          }
+
           return;
         }
-        if (dados.statusDisciplina === "cursando") return;
+
+        if (dados.statusDisciplina === "cursando") {
+          return;
+        }
+
+        if (
+          dados.statusDisciplina === "concluida" &&
+          (dados.nota === undefined || dados.nota === null)
+        ) {
+          perguntasPendentes.push(indice);
+        }
+
+        return;
       }
 
+      /* Perguntas que não são disciplinas continuam exigindo nota normalmente. */
       if (dados.nota === undefined || dados.nota === null) {
         perguntasPendentes.push(indice);
         return;
