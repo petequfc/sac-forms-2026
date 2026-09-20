@@ -30,7 +30,7 @@ const perguntas = [
   { tipo:"disciplina", grupo:"Disciplinas de Formação Básica", numero:"24", texto:"Química Orgânica: Teórica I e II e Experimental" },
   { tipo:"disciplina", grupo:"Disciplinas de Ciência da Engenharia", numero:"25", texto:"Fundamentos e Expressão Gráficas de Projetos" },
   { tipo:"disciplina", grupo:"Disciplinas de Ciência da Engenharia", numero:"26", texto:"Programação Computacional" },
-  { tipo:"disciplina", grupo:"Disciplinas de Ciência da Engenharia", numero:"27", texto:"Mecânica dos Fluidos" },
+  { tipo:"disciplina", grupo:"Disciplinas de Ciência da Engenharia", numero:"27", texto:"Mecânica/Transporte dos Fluidos" },
   { tipo:"disciplina", grupo:"Disciplinas de Ciência da Engenharia", numero:"28", texto:"Termodinâmica" },
   { tipo:"disciplina", grupo:"Disciplinas de Ciência da Engenharia", numero:"29", texto:"Fenômenos de Transporte" },
   { tipo:"disciplina", grupo:"Disciplinas de Ciência da Engenharia", numero:"30", texto:"Eletrotécnica Industrial: Geral e Laboratorial" },
