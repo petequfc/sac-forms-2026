@@ -1141,19 +1141,15 @@ function atualizarBotoes() {
    ENVIAR FORMULÁRIO
    ========================================================= */
 
-function enviar() {
+async function enviar() {
 
   /*
      A ÚLTIMA PERGUNTA TAMBÉM
      PRECISA ESTAR RESPONDIDA.
   */
 
-  if (
-    !validarPerguntaAtual()
-  ) {
-
+  if (!validarPerguntaAtual()) {
     return;
-
   }
 
 
@@ -1165,22 +1161,18 @@ function enviar() {
      CONFERE SE TODAS FORAM RESPONDIDAS
      ======================================================= */
 
-  const perguntasPendentes =
-    [];
+  const perguntasPendentes = [];
 
 
   perguntasReais.forEach(
     (pergunta, indice) => {
 
-      const dados =
-        respostas[indice];
+      const dados = respostas[indice];
 
 
       if (!dados) {
 
-        perguntasPendentes.push(
-          indice
-        );
+        perguntasPendentes.push(indice);
 
         return;
 
@@ -1189,35 +1181,37 @@ function enviar() {
 
       /* PERGUNTA ABERTA */
 
-      if (
-        pergunta.tipo === "aberta"
-      ) {
+      if (pergunta.tipo === "aberta") {
 
         if (
           !dados.resposta ||
           dados.resposta.trim() === ""
         ) {
 
-          perguntasPendentes.push(
-            indice
-          );
+          perguntasPendentes.push(indice);
 
         }
-
 
         return;
 
       }
 
 
+      /* PERGUNTA DE DISCIPLINA */
+
       if (pergunta.tipo === "disciplina") {
 
         if (!dados.statusDisciplina) {
+
           perguntasPendentes.push(indice);
+
           return;
+
         }
 
+
         if (dados.statusDisciplina === "nao_cursei") {
+
           if (
             !dados.motivoDisciplina ||
             (
@@ -1225,13 +1219,18 @@ function enviar() {
               !dados.outroMotivo?.trim()
             )
           ) {
+
             perguntasPendentes.push(indice);
+
           }
 
           return;
+
         }
 
+
         if (dados.statusDisciplina === "nao_concluida") {
+
           if (
             !dados.situacaoNaoConcluiu ||
             (
@@ -1239,45 +1238,59 @@ function enviar() {
               !dados.outroNaoConcluiu?.trim()
             )
           ) {
+
             perguntasPendentes.push(indice);
+
           }
 
           return;
+
         }
 
+
         if (dados.statusDisciplina === "cursando") {
+
           return;
+
         }
+
 
         if (
           dados.statusDisciplina === "concluida" &&
           (dados.nota === undefined || dados.nota === null)
         ) {
+
           perguntasPendentes.push(indice);
+
         }
 
         return;
+
       }
 
-      /* Perguntas que não são disciplinas continuam exigindo nota normalmente. */
-      if (dados.nota === undefined || dados.nota === null) {
+
+      /* PERGUNTAS QUE NÃO SÃO DISCIPLINAS */
+
+      if (
+        dados.nota === undefined ||
+        dados.nota === null
+      ) {
+
         perguntasPendentes.push(indice);
+
         return;
+
       }
 
     }
   );
 
 
-  /*
-     NORMALMENTE ISTO NÃO DEVE MAIS
-     ACONTECER, PORQUE O SISTEMA JÁ
-     IMPEDE QUE A PESSOA AVANCE.
-  */
+  /* =======================================================
+     VERIFICA SE EXISTEM PERGUNTAS PENDENTES
+     ======================================================= */
 
-  if (
-    perguntasPendentes.length > 0
-  ) {
+  if (perguntasPendentes.length > 0) {
 
     alert(
       "Existem perguntas obrigatórias que ainda não foram respondidas."
@@ -1317,7 +1330,10 @@ function enviar() {
         .getElementById("semestre")
         .value,
 
-    anoIngresso: document.getElementById("anoIngresso").value,
+    anoIngresso:
+      document
+        .getElementById("anoIngresso")
+        .value,
 
     curriculo:
       document.querySelector(
@@ -1328,7 +1344,136 @@ function enviar() {
 
 
   /* =======================================================
-     POR ENQUANTO, MOSTRA NO CONSOLE
+     CRIA UM ID ÚNICO PARA ESTA RESPOSTA
+     ======================================================= */
+
+  const respostaId = crypto.randomUUID();
+
+
+  /* =======================================================
+     SALVA A IDENTIFICAÇÃO NA TABELA "respostas"
+     ======================================================= */
+
+  const { error: erroIdentificacao } =
+    await supabaseClient
+      .from("respostas")
+      .insert({
+
+        id: respostaId,
+
+        nome: identificacao.nome,
+
+        matricula: identificacao.matricula,
+
+        semestre: identificacao.semestre,
+
+        ano_ingresso: identificacao.anoIngresso,
+
+        curriculo: identificacao.curriculo
+
+      });
+
+
+  if (erroIdentificacao) {
+
+    console.error(
+      "Erro ao salvar identificação:",
+      erroIdentificacao
+    );
+
+    alert(
+      "Não foi possível enviar suas respostas. Verifique sua conexão e tente novamente."
+    );
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     ORGANIZA AS RESPOSTAS DAS PERGUNTAS
+     ======================================================= */
+
+  const respostasPerguntas =
+    perguntasReais.map(
+      (pergunta, indice) => {
+
+        const dados =
+          respostas[indice] || {};
+
+
+        return {
+
+          resposta_id: respostaId,
+
+          pergunta_id:
+            String(
+              pergunta.numero ??
+              indice + 1
+            ),
+
+          nota:
+            dados.nota ??
+            null,
+
+          situacao:
+            dados.statusDisciplina ??
+            null,
+
+          motivo_nao_cursou:
+            dados.motivoDisciplina ??
+            null,
+
+          outro_motivo:
+            dados.outroMotivo ??
+            null,
+
+          observacao:
+            dados.comentario ??
+            null,
+
+          resposta_texto:
+            dados.resposta ??
+            null
+
+        };
+
+      }
+    );
+
+
+  /* =======================================================
+     SALVA TODAS AS RESPOSTAS DAS PERGUNTAS
+     ======================================================= */
+
+  const { error: erroPerguntas } =
+    await supabaseClient
+      .from("respostas_perguntas")
+      .insert(respostasPerguntas);
+
+
+  /* =======================================================
+     SE DEU ERRO, INFORMA O USUÁRIO
+     ======================================================= */
+
+  if (erroPerguntas) {
+
+    console.error(
+      "Erro ao salvar respostas:",
+      erroPerguntas
+    );
+
+    alert(
+      "A identificação foi registrada, mas houve um erro ao salvar as respostas. Entre em contato com a equipe responsável."
+    );
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     ENVIO CONCLUÍDO
      ======================================================= */
 
   console.log(
@@ -1343,12 +1488,9 @@ function enviar() {
   );
 
 
-  /*
-     ============================================
-     FUTURAMENTE:
-     CONEXÃO COM SUPABASE ENTRARÁ AQUI
-     ============================================
-  */
+  console.log(
+    "Resposta enviada com sucesso para o Supabase!"
+  );
 
 
   mostrarPagina(
