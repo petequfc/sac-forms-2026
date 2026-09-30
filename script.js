@@ -1,3 +1,11 @@
+const SUPABASE_URL = "https://ahzpqhxckdfmpteptoul.supabase.co";
+const SUPABASE_KEY = "sb_publishable_VbNxTGM17cCO3oCCSxJ_vg_jbSrnEQA";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
 const perguntas = [
   { tipo: "secao", titulo: "Seção 1: Competências Gerais, Práticas e Interpessoais da Engenharia (Atribuições CREA)", descricao: "Avalie de 0 a 5 o quanto sua formação contribuiu para o desenvolvimento de cada competência (0 = nenhuma contribuição; 5 = máxima contribuição)." },
   { numero:"1", texto:"Gestão e Liderança", detalhe:"Capacidade de orientar equipes e gerir recursos em projetos ou atividades técnicas." },
